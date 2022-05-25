@@ -1,27 +1,30 @@
-#include<stdio.h> 
-int main()
+#include<stdio.h>
+#define N 88
+int  MAX(int a[],int h)
 {
-int x;
-printf("请输入输入的元素个数\n");
-scanf("%d",&x);
-int array[x];
-printf("请输入整数元素\n");
-int i;
-for(i=0;i<x;i++){
-	printf("请输入第%d个元素\n",i+1);
-	scanf("%d",&array[i]);
-}
-
-for(i=0;i<x;i++)
-printf("第%d个元素为%d\n",i+1,array[i]);
-	int max=0;
-	int now;
-	for(i=0;i<x;i++){
-		now+=array[i];
-		if(now>max)
-		max=now;
-		else if(now<0)
-		now=0;
+	int tsum,max,j;
+	tsum=max=0;
+	for(j=0;j<h;j++)
+	{
+		tsum+=a[j];
+		if(tsum>max)
+			max=tsum;
+		else if(tsum<0)
+			tsum=0;
 	}
-	printf("最大子数组为%d\n",max);
+	return max;
+}
+void main()
+{
+	int i,o[N],n,m;
+	printf("请输入数组的个数：");
+	scanf("%d",&n);
+	printf("请输入数组的元素");
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&m);
+		o[i]=m;
+	}
+	n=MAX(o,N);
+	printf("最大子数组之和：%d\n",n);
 }
