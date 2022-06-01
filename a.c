@@ -1,30 +1,15 @@
 #include<stdio.h>
-#define N 88
-int  MAX(int a[],int h)
-{
-	int tsum,max,j;
-	tsum=max=0;
-	for(j=0;j<h;j++)
-	{
-		tsum+=a[j];
-		if(tsum>max)
-			max=tsum;
-		else if(tsum<0)
-			tsum=0;
-	}
-	return max;
-}
-void main()
-{
-	int i,o[N],n,m;
-	printf("请输入数组的个数：");
-	scanf("%d",&n);
-	printf("请输入数组的元素");
-	for(i=0;i<n;i++)
-	{
-		scanf("%d",&m);
-		o[i]=m;
-	}
-	n=MAX(o,N);
-	printf("最大子数组之和：%d\n",n);
+int main()
+{float a[9]={9.8,12,45,67,23,19.8,2.55,45,37.5},max,min,s=0;
+ int i;
+ max=min=a[0];
+ printf("数组中的数:\n");
+ for(i=0;i<9;i++)
+  {s+=a[i];
+   if(max<a[i])max=a[i];
+   if(min>a[i])min=a[i];
+   printf("%g ",a[i]);
+  }
+ printf("\n最大值=%g\n最小值=%g\n平均值=%g\n",max,min,s/9.0); 
+ return 0;
 }
